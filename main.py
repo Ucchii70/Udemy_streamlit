@@ -1,14 +1,11 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+from PIL import Image
 
 st.title("Streamlit 超入門")
 
-st.write("DataFrame")
+st.write("Display Image")
 
-df = pd.DataFrame(
-    np.random.rand(100,2)/[50,50] + [35.69,139.70],     #NumPyのnp.random.rand()関数を使用して生成されます。この関数は0から1の範囲の一様分布からランダムな数値を生成するもの
-    columns=["lat","lon"]
-)
-
-st.map(df) #mapを表示
+img = Image.open("IMGP3446.jpg")
+st.image(img, caption="Huyen", use_column_width=True)
