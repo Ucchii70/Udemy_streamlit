@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from PIL import Image      #画像を扱う
+from PIL import Image       #画像を扱う
 import time
 
 st.title("Streamlit 超入門")
@@ -9,13 +9,17 @@ st.title("Streamlit 超入門")
 st.write("プログレスバーの表示")
 "Start!!"
 
-latest_iteration = st.empty()
-bar = st.progress(0)
+latest_iteration = st.empty()                     #空の要素を作成
+bar = st.progress(0)                              #
 
 for i in range(100):
-    latest_iteration.text(f"Iteration {i+1}")
-    bar.progress(i + 1)
-    time.sleep(0.1)
+    latest_iteration.text(f"Iteration {i+1}")     #進捗状況のテキストを表示
+    bar.progress(i + 1)                           #バーを進める
+    time.sleep(0.1)                               #0,1秒ごとに動かす
+
+"Done!!"
+
+bar.empty()                                       #カウントが終わったらバーを消す
 
 left_column, right_column = st.columns(2)
 button = left_column.button("右カラムに文字を表示")
